@@ -1,3 +1,4 @@
+import 'package:eco_grow/core/components/custom_grid_view.dart';
 import 'package:eco_grow/core/components/web_button.dart';
 import 'package:eco_grow/core/constants/app_color.dart';
 import 'package:eco_grow/core/constants/app_style.dart';
@@ -22,17 +23,10 @@ class GreenStory extends StatelessWidget {
             'Những câu chuyện xanh',
             style: AppStyle.titleText),
         const SizedBox(height: 30.0),
-        GridView.builder(
-          physics: const NeverScrollableScrollPhysics(),
-          padding: EdgeInsets.symmetric(horizontal: context.getWidth() * 0.15),
-          shrinkWrap: true,
+        CustomAppGridView(
           itemCount: stories.length,
-          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 400.0,
-            childAspectRatio: 0.68,
-            crossAxisSpacing: 30.0,
-            mainAxisSpacing: 30.0,
-          ),
+          maxCrossAxisExtent: 400.0,
+          childAspectRatio: 0.68,
           itemBuilder: (context, index) {
             return Container(
               decoration: BoxDecoration(

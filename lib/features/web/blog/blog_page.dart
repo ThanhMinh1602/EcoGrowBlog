@@ -1,4 +1,5 @@
 import 'package:eco_grow/core/components/app_banner_widget.dart';
+import 'package:eco_grow/core/components/footer.dart';
 import 'package:eco_grow/core/components/web_button.dart';
 import 'package:eco_grow/core/constants/app_color.dart';
 import 'package:eco_grow/core/constants/app_style.dart';
@@ -21,6 +22,7 @@ class BlogPage extends StatelessWidget {
           title: 'Hãy hành động để phủ xanh môi trường sống của chúng ta!',
         ),
         GreenStory(stories: stories),
+        const Footer()
       ],
     );
   }

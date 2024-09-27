@@ -1,4 +1,4 @@
-import 'package:eco_grow/core/components/footer%20.dart';
+import 'package:eco_grow/core/components/footer.dart';
 import 'package:eco_grow/core/components/app_banner_widget.dart';
 import 'package:eco_grow/features/web/home/widgets/title_home_widget.dart';
 import 'package:flutter/material.dart';

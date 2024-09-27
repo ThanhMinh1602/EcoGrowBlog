@@ -13,7 +13,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int indexStack = 2;
+  int indexStack = 4;
 
   final mainModels = MainModel.mainModels;
 
