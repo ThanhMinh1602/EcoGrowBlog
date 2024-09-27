@@ -1,6 +1,7 @@
 import 'package:eco_grow/core/components/app_bar_custom.dart';
 import 'package:eco_grow/core/constants/app_color.dart';
 import 'package:eco_grow/core/constants/app_style.dart';
+import 'package:eco_grow/core/extensions/app_extension.dart';
 import 'package:eco_grow/core/model/main_model.dart';
 import 'package:eco_grow/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
@@ -25,11 +26,28 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = context.getWidth();
     return Scaffold(
+      endDrawer: Drawer(
+        child: ListView(
+          children: _buildNavButtons(),
+        ),
+      ),
       backgroundColor: AppColor.whiteColor,
       appBar: AppbarCustom(
         logoImg: Assets.icons.logo.path,
-        actions: _buildNavButtons(),
+        actions: [
+          if (screenWidth < 700)
+            Builder(
+              builder: (context) => IconButton(
+                  onPressed: () {
+                    Scaffold.of(context).openEndDrawer();
+                  },
+                  icon: const Icon(Icons.menu)),
+            )
+          else
+            ..._buildNavButtons(),
+        ],
       ),
       body: IndexedStack(
         index: indexStack,

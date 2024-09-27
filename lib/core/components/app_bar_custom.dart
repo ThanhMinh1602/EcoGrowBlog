@@ -9,8 +9,11 @@ class AppbarCustom extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = context.getWidth();
+    final screenHeight = context.getHeight();
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 50.0),
+      padding: EdgeInsets.symmetric(
+          vertical: screenHeight * 0.01, horizontal: screenWidth * 0.03),
       width: context.getWidth(),
       decoration: BoxDecoration(
         color: AppColor.whiteColor,

@@ -4,6 +4,7 @@ import 'package:eco_grow/core/components/footer.dart';
 import 'package:eco_grow/core/constants/app_color.dart';
 import 'package:eco_grow/core/constants/app_style.dart';
 import 'package:eco_grow/core/extensions/app_extension.dart';
+import 'package:eco_grow/core/model/contact_model.dart';
 import 'package:flutter/material.dart';
 
 class ContactPage extends StatelessWidget {
@@ -21,9 +22,11 @@ class ContactPage extends StatelessWidget {
         CustomAppGridView(
           itemCount: 3,
           maxCrossAxisExtent: 400,
-          childAspectRatio: 2,
+          childAspectRatio: 1.7,
           itemBuilder: (context, index) {
+            final datas = ContactModel.contactModels;
             return Container(
+              padding: EdgeInsets.all(context.getWidth() * 0.02),
               decoration: BoxDecoration(
                   border: Border.all(
                 color: AppColor.accentColor,
@@ -32,10 +35,11 @@ class ContactPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Icon(Icons.email,
+                  Icon(datas[index].icon,
                       size: 30.0, color: AppColor.accentColor),
                   Text(
-                    'ntminh16201@gmail.com',
+                    textAlign: TextAlign.center,
+                    datas[index].title,
                     style: AppStyle.webHeaderItemActive
                         .copyWith(color: AppColor.accentColor),
                   ),
