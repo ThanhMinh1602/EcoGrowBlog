@@ -16,9 +16,19 @@ class AppStyle {
   static const TextStyle bannerText = TextStyle(
       fontSize: 70.0, fontWeight: FontWeight.bold, color: AppColor.whiteColor);
   static const TextStyle textContent = TextStyle(
-    fontSize: 20.0,
-    fontWeight: FontWeight.w100,
+    fontSize: 18.0,
+    fontWeight: FontWeight.normal,
   );
-  static const TextStyle titleText =
-      TextStyle(fontSize: 40, fontWeight: FontWeight.bold);
+  static const TextStyle titleText = TextStyle(
+      fontSize: 40, fontWeight: FontWeight.bold, color: AppColor.accentColor);
+
+  //web mobile
+  static const TextStyle bannerTextWebMobile = TextStyle(
+      fontSize: 20.0, fontWeight: FontWeight.bold, color: AppColor.whiteColor);
+  static const TextStyle titleTextWebMobile = TextStyle(
+      fontSize: 25, fontWeight: FontWeight.bold, color: AppColor.accentColor);
+  static const TextStyle textContentMobile = TextStyle(
+    fontSize: 15.0,
+    fontWeight: FontWeight.normal,
+  );
 }

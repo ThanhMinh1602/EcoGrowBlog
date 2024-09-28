@@ -4,7 +4,7 @@ import 'package:eco_grow/core/components/web_button.dart';
 import 'package:eco_grow/core/constants/app_color.dart';
 import 'package:eco_grow/core/constants/app_style.dart';
 import 'package:eco_grow/core/extensions/app_extension.dart';
-import 'package:eco_grow/core/model/story_item.dart';
+import 'package:eco_grow/model/story_item.dart';
 import 'package:eco_grow/features/web/blog/widgets/green_story.dart';
 import 'package:flutter/material.dart';
 

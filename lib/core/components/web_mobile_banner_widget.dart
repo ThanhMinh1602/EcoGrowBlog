@@ -4,10 +4,10 @@ import 'package:eco_grow/core/constants/app_style.dart';
 import 'package:eco_grow/core/extensions/app_extension.dart';
 import 'package:flutter/material.dart';
 
-class AppBannerWidget extends StatelessWidget {
+class WebMobileBannerWidget extends StatelessWidget {
   final String backgroundImage;
   final String title;
-  const AppBannerWidget({
+  const WebMobileBannerWidget({
     super.key,
     required this.backgroundImage,
     required this.title,
@@ -16,9 +16,9 @@ class AppBannerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 50.0),
+      margin: const EdgeInsets.only(bottom: 20.0),
       width: context.getHeight(),
-      height: 400.0,
+      height: 200.0,
       alignment: Alignment.center,
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -31,15 +31,15 @@ class AppBannerWidget extends StatelessWidget {
           Container(
             color: AppColor.blackColor.withOpacity(0.2),
           ),
-          Padding(
-            padding: const EdgeInsets.all(100),
-            child: Center(
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
               child: AnimatedTextKit(
                 animatedTexts: [
                   TypewriterAnimatedText(
                     textAlign: TextAlign.center,
                     title,
-                    textStyle: AppStyle.bannerText,
+                    textStyle: AppStyle.bannerTextWebMobile,
                     speed: const Duration(milliseconds: 100),
                   ),
                 ],

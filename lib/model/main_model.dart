@@ -10,12 +10,4 @@ class MainModel {
   final Widget page;
 
   MainModel({required this.title, required this.page});
-
-  static List<MainModel> mainModels = [
-    MainModel(title: 'Home', page: const HomePage()),
-    MainModel(title: 'Về chúng tôi', page: const AboutPage()),
-    MainModel(title: 'Blog', page: const BlogPage()),
-    MainModel(title: 'Quyên góp', page: const DonatePage()),
-    MainModel(title: 'Liên hệ', page: const ContactPage()),
-  ];
 }

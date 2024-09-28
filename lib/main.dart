@@ -1,3 +1,4 @@
+import 'package:eco_grow/core/constants/app_color.dart';
 import 'package:eco_grow/features/mobile/splash/splash_screen.dart';
 import 'package:eco_grow/features/web/main/main_page.dart';
 import 'package:flutter/material.dart';
@@ -14,28 +15,31 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return kIsWeb
-        ? MaterialApp(
-            title: 'Blog App',
-            debugShowCheckedModeBanner: false,
-            theme: ThemeData(
-              useMaterial3: true,
-              textTheme: GoogleFonts.kanitTextTheme(),
-            ),
-            home: const MainPage(),
-          )
-        : ScreenUtilInit(
-            designSize: const Size(430, 932),
-            minTextAdapt: true,
-            child: MaterialApp(
-              title: 'Blog App',
-              debugShowCheckedModeBanner: false,
-              theme: ThemeData(
-                useMaterial3: true,
-                textTheme: GoogleFonts.kanitTextTheme(),
-              ),
-              home: const SplashScreen(),
-            ),
-          );
+    return MaterialApp(
+      title: 'Blog App',
+      debugShowCheckedModeBanner: false,
+      theme: _buildAppTheme(),
+      home: _buildHomePage(),
+      builder: (context, widget) {
+        if (kIsWeb) return widget!;
+        return ScreenUtilInit(
+          designSize: const Size(430, 932),
+          minTextAdapt: true,
+          builder: (context, child) => widget!,
+        );
+      },
+    );
+  }
+
+  Widget _buildHomePage() {
+    return kIsWeb ? const MainPage() : const SplashScreen();
+  }
+
+  ThemeData _buildAppTheme() {
+    return ThemeData(
+      useMaterial3: true,
+      colorSchemeSeed: AppColor.accentColor,
+      textTheme: GoogleFonts.kanitTextTheme(),
+    );
   }
 }
