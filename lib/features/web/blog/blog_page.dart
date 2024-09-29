@@ -1,11 +1,9 @@
-import 'package:eco_grow/core/components/app_banner_widget.dart';
-import 'package:eco_grow/core/components/footer.dart';
-import 'package:eco_grow/core/components/web_button.dart';
-import 'package:eco_grow/core/constants/app_color.dart';
-import 'package:eco_grow/core/constants/app_style.dart';
+import 'package:eco_grow/core/components/responsive/banner_responsive.dart';
+import 'package:eco_grow/core/components/responsive/footer_responsive.dart';
 import 'package:eco_grow/core/extensions/app_extension.dart';
+import 'package:eco_grow/core/utils/app_utils.dart';
+import 'package:eco_grow/features/web/blog/widgets/blog_responsive.dart';
 import 'package:eco_grow/model/story_item.dart';
-import 'package:eco_grow/features/web/blog/widgets/green_story.dart';
 import 'package:flutter/material.dart';
 
 class BlogPage extends StatelessWidget {
@@ -13,16 +11,20 @@ class BlogPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final stories = StoryItemModel.stories;
+    final bool isMobile = context.getWidth() < AppUtils.defineScreenMobile;
+    const String bannerImageUrl =
+        'https://cdn.pixabay.com/photo/2024/04/12/19/50/earthday-8692504_1280.png';
+    const String bannerTitle =
+        'https://cdn.pixabay.com/photo/2024/04/12/19/50/earthday-8692504_1280.png';
+    final datas = StoryItemModel.stories;
     return ListView(
       children: [
-        const AppBannerWidget(
-          backgroundImage:
-              'https://cdn.pixabay.com/photo/2024/04/12/19/50/earthday-8692504_1280.png',
-          title: 'Hãy hành động để phủ xanh môi trường sống của chúng ta!',
-        ),
-        GreenStory(stories: stories),
-        const Footer()
+        BannerResponsive(
+            isMobileWeb: isMobile,
+            bannerImageUrl: bannerImageUrl,
+            bannerTitle: bannerTitle),
+        GreenStoryResponsive(isMobile: isMobile, datas: datas),
+        FooterResponsive(isWebMobile: isMobile)
       ],
     );
   }

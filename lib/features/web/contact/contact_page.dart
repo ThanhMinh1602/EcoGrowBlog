@@ -1,9 +1,10 @@
-import 'package:eco_grow/core/components/app_banner_widget.dart';
 import 'package:eco_grow/core/components/custom_grid_view.dart';
-import 'package:eco_grow/core/components/footer.dart';
+import 'package:eco_grow/core/components/responsive/banner_responsive.dart';
+import 'package:eco_grow/core/components/responsive/footer_responsive.dart';
 import 'package:eco_grow/core/constants/app_color.dart';
 import 'package:eco_grow/core/constants/app_style.dart';
 import 'package:eco_grow/core/extensions/app_extension.dart';
+import 'package:eco_grow/core/utils/app_utils.dart';
 import 'package:eco_grow/model/contact_model.dart';
 import 'package:flutter/material.dart';
 import 'package:mailer/mailer.dart';
@@ -15,6 +16,10 @@ class ContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
+    final isMobile = context.getWidth() < AppUtils.defineScreenMobile;
+    const bannerImageUrl =
+        'https://cdn.pixabay.com/photo/2024/03/07/22/56/woman-8619487_1280.jpg';
+    const bannerTitle = 'Sự góp ý của bạn sẽ giúp chúng tôi hoàn thiện hơn!';
 
     String name = '';
     String phone = '';
@@ -51,11 +56,10 @@ class ContactPage extends StatelessWidget {
 
     return ListView(
       children: [
-        const AppBannerWidget(
-          backgroundImage:
-              'https://cdn.pixabay.com/photo/2024/03/07/22/56/woman-8619487_1280.jpg',
-          title: 'Sự góp ý của bạn sẽ giúp chúng tôi hoàn thiện hơn!',
-        ),
+        BannerResponsive(
+            isMobileWeb: isMobile,
+            bannerImageUrl: bannerImageUrl,
+            bannerTitle: bannerTitle),
         CustomAppGridView(
           itemCount: 3,
           maxCrossAxisExtent: 400,
@@ -185,7 +189,7 @@ class ContactPage extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 30.0),
-        const Footer(),
+        FooterResponsive(isWebMobile: isMobile)
       ],
     );
   }

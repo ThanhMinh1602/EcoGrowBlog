@@ -11,6 +11,12 @@ class WebButton extends StatelessWidget {
     required this.textButton,
   });
 
+  const WebButton.webMobile({
+    super.key,
+    this.onPressed,
+    required this.textButton,
+  });
+
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(

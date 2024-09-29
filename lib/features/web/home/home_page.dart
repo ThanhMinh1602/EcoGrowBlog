@@ -1,11 +1,8 @@
-import 'package:eco_grow/core/components/footer.dart';
-import 'package:eco_grow/core/components/app_banner_widget.dart';
-import 'package:eco_grow/core/components/web_mobile_banner_widget.dart';
-import 'package:eco_grow/core/components/web_mobile_footer.dart';
+import 'package:eco_grow/core/components/responsive/banner_responsive.dart';
+import 'package:eco_grow/core/components/responsive/footer_responsive.dart';
 import 'package:eco_grow/core/extensions/app_extension.dart';
 import 'package:eco_grow/core/utils/app_utils.dart';
-import 'package:eco_grow/features/web/home/widgets/mobile_web_vision_widget.dart';
-import 'package:eco_grow/features/web/home/widgets/vision_widget.dart';
+import 'package:eco_grow/features/web/home/widgets/vision_responsive.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -19,33 +16,16 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool isMobile = context.getWidth() < AppUtils.defineScreenMobile;
-
     return ListView(
       children: [
-        _buildBanner(isMobile),
-        _buildVisionWidget(isMobile),
-        _buildFooter(isMobile),
+        BannerResponsive(
+          isMobileWeb: isMobile,
+          bannerImageUrl: bannerImageUrl,
+          bannerTitle: bannerTitle,
+        ),
+        VisionResponsive(isMobile: isMobile),
+        FooterResponsive(isWebMobile: isMobile)
       ],
     );
-  }
-
-  Widget _buildBanner(bool isMobile) {
-    return isMobile
-        ? const WebMobileBannerWidget(
-            backgroundImage: bannerImageUrl,
-            title: bannerTitle,
-          )
-        : const AppBannerWidget(
-            backgroundImage: bannerImageUrl,
-            title: bannerTitle,
-          );
-  }
-
-  Widget _buildVisionWidget(bool isMobile) {
-    return isMobile ? const MobileWebVisionWidget() : const VisionWidget();
-  }
-
-  Widget _buildFooter(bool isMobile) {
-    return isMobile ? const WebMobileFooter() : const Footer();
   }
 }

@@ -22,7 +22,7 @@ class AboutContentBaseWidget extends StatelessWidget {
       padding: EdgeInsets.symmetric(
         vertical: 16.0,
         horizontal:
-            isMobile ? AppUtils.mobilePaddingHoriz : context.getHeight() * 0.15,
+            isMobile ? AppUtils.mobilePaddingHoriz : AppUtils.webPaddingHoriz,
       ),
       child: isMobile
           ? Column(
@@ -48,39 +48,32 @@ class AboutContentBaseWidget extends StatelessWidget {
   }
 
   Widget _buildTextColumn() {
-    return Padding(
-      padding:
-          const EdgeInsets.symmetric(horizontal: AppUtils.mobilePaddingHoriz),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            data.title,
-            style: isMobile ? AppStyle.titleTextWebMobile : AppStyle.titleText,
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 8.0),
-          ...data.content.map(
-            (text) => Padding(
-              padding: const EdgeInsets.only(bottom: 7.0),
-              child: Text(
-                text,
-                style: isMobile
-                    ? AppStyle.textContentMobile
-                    : AppStyle.textContent,
-                textAlign: TextAlign.justify,
-              ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          data.title,
+          style: isMobile ? AppStyle.titleTextWebMobile : AppStyle.titleText,
+          textAlign: TextAlign.center,
+        ),
+        const SizedBox(height: 8.0),
+        ...data.content.map(
+          (text) => Padding(
+            padding: const EdgeInsets.only(bottom: 7.0),
+            child: Text(
+              text,
+              style:
+                  isMobile ? AppStyle.textContentMobile : AppStyle.textContent,
+              textAlign: TextAlign.justify,
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
   Widget _buildImage() {
     return Container(
-      margin:
-          const EdgeInsets.symmetric(horizontal: AppUtils.mobilePaddingHoriz),
       width: isMobile ? double.infinity : 600,
       height: isMobile ? 200 : 600,
       decoration: const BoxDecoration(

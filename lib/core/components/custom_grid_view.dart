@@ -22,7 +22,6 @@ class CustomAppGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       physics: const NeverScrollableScrollPhysics(),
-      padding: EdgeInsets.symmetric(horizontal: context.getWidth() * 0.15),
       shrinkWrap: true,
       itemCount: itemCount,
       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(

@@ -2,6 +2,7 @@ import 'package:eco_grow/core/components/app_bar_custom.dart';
 import 'package:eco_grow/core/constants/app_color.dart';
 import 'package:eco_grow/core/constants/app_style.dart';
 import 'package:eco_grow/core/extensions/app_extension.dart';
+import 'package:eco_grow/core/utils/app_utils.dart';
 import 'package:eco_grow/features/web/about/about_page.dart';
 import 'package:eco_grow/features/web/blog/blog_page.dart';
 import 'package:eco_grow/features/web/contact/contact_page.dart';
@@ -35,25 +36,16 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
+  bool get isMobile => context.getWidth() < AppUtils.defineScreenMobile;
+
   @override
   Widget build(BuildContext context) {
-    final screenWidth = context.getWidth();
     return Scaffold(
       endDrawer: _buildAppDrawer(),
       backgroundColor: AppColor.whiteColor,
       appBar: AppbarCustom(
         logoImg: Assets.icons.logo.path,
-        actions: [
-          if (screenWidth < 700)
-            Builder(
-              builder: (context) => IconButton(
-                onPressed: () => Scaffold.of(context).openEndDrawer(),
-                icon: const Icon(Icons.menu),
-              ),
-            )
-          else
-            ..._buildNavButtons(),
-        ],
+        actions: isMobile ? [_buildMenuButton(context)] : _buildNavButtons(),
       ),
       body: IndexedStack(
         index: indexStack,
@@ -65,7 +57,17 @@ class _MainPageState extends State<MainPage> {
   Drawer _buildAppDrawer() {
     return Drawer(
       child: ListView(
+        padding: EdgeInsets.zero,
         children: _buildNavButtons(),
+      ),
+    );
+  }
+
+  Widget _buildMenuButton(BuildContext context) {
+    return Builder(
+      builder: (context) => IconButton(
+        onPressed: () => Scaffold.of(context).openEndDrawer(),
+        icon: const Icon(Icons.menu),
       ),
     );
   }
