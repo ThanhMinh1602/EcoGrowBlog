@@ -1,184 +1,151 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:eco_grow/core/components/custom_grid_view.dart';
 import 'package:eco_grow/core/components/web_button.dart';
 import 'package:eco_grow/core/constants/app_color.dart';
 import 'package:eco_grow/core/constants/app_style.dart';
+import 'package:eco_grow/core/extensions/app_extension.dart';
 import 'package:eco_grow/core/utils/app_utils.dart';
+import 'package:eco_grow/features/web/blog_detail/blog_detail.dart';
 import 'package:eco_grow/model/story_item.dart';
 import 'package:flutter/material.dart';
 
 class GreenStoryResponsive extends StatelessWidget {
   final List<StoryItemModel> datas;
   final bool isMobile;
+
   const GreenStoryResponsive(
       {super.key, required this.datas, required this.isMobile});
 
   @override
   Widget build(BuildContext context) {
-    return isMobile ? _buildGreenStoryWebMobile() : _buildGreenStoryWeb();
-  }
+    void onPressedDetail(StoryItemModel storyItemModel) {
+      context.push(screen: BlogDetail(storyItemModel: storyItemModel));
+    }
 
-  Widget _buildGreenStoryWeb() {
+    List<StoryItemModel> communityDatas =
+        datas.where((element) => element.isCommunity == true).toList();
+    List<StoryItemModel> personalDatas =
+        datas.where((element) => element.isCommunity == false).toList();
+
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: AppUtils.webPaddingHoriz)
-          .copyWith(bottom: 20.0),
+      padding: EdgeInsets.symmetric(
+        horizontal:
+            isMobile ? AppUtils.mobilePaddingHoriz : AppUtils.webPaddingHoriz,
+      ).copyWith(bottom: 20.0),
       child: Column(
         children: [
-          const Text(
-              textAlign: TextAlign.center,
-              'Những câu chuyện xanh',
-              style: AppStyle.titleText),
           const SizedBox(height: 30.0),
-          CustomAppGridView(
-            itemCount: datas.length,
-            maxCrossAxisExtent: 400.0,
-            childAspectRatio: 0.75,
-            itemBuilder: (context, index) {
-              return Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                        color: AppColor.blackColor.withOpacity(0.2),
-                        offset: const Offset(0, 2),
-                        blurRadius: 2,
-                        spreadRadius: 1)
-                  ],
-                  color: AppColor.whiteColor,
-                ),
-                child: LayoutBuilder(
-                  builder: (context, constraints) {
-                    return Column(
-                      children: [
-                        Image.network(
-                          datas[index].imagePath,
-                          width: double.infinity,
-                          height: constraints.maxHeight * 0.45,
-                          fit: BoxFit.cover,
-                        ),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 20.0,
-                              vertical: 10.0,
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 2,
-                                  datas[index].title,
-                                  style: AppStyle.textContent
-                                      .copyWith(fontWeight: FontWeight.bold),
-                                ),
-                                const SizedBox(height: 10.0),
-                                Text(
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 2,
-                                  datas[index].subTitle,
-                                  style: AppStyle.textContent,
-                                ),
-                                const Spacer(),
-                                Center(
-                                  child: WebButton(
-                                    textButton: 'Xem Ngay',
-                                    onPressed: () {},
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        )
-                      ],
-                    );
-                  },
-                ),
-              );
-            },
+          AnimatedTextKit(
+            repeatForever: true,
+            animatedTexts: [
+              ColorizeAnimatedText(
+                textAlign: TextAlign.center,
+                'Câu chuyện cá nhân',
+                textStyle: AppStyle.titleText,
+                colors: AppColor.homTitleTextColorize,
+                speed: const Duration(milliseconds: 100),
+              ),
+            ],
           ),
+          Divider(
+            color: AppColor.accentColor,
+            indent: context.getWidth() * 0.42,
+            endIndent: context.getWidth() * 0.42,
+            thickness: 3,
+          ),
+          _buildStoryGrid(personalDatas, onPressedDetail, isMobile),
+          const SizedBox(height: 30.0),
+          AnimatedTextKit(
+            repeatForever: true,
+            animatedTexts: [
+              ColorizeAnimatedText(
+                textAlign: TextAlign.center,
+                'Câu chuyện cộng đồng',
+                textStyle: AppStyle.titleText,
+                colors: AppColor.homTitleTextColorize,
+                speed: const Duration(milliseconds: 100),
+              ),
+            ],
+          ),
+          Divider(
+            color: AppColor.accentColor,
+            indent: context.getWidth() * 0.42,
+            endIndent: context.getWidth() * 0.42,
+            thickness: 3,
+          ),
+          _buildStoryGrid(communityDatas, onPressedDetail, isMobile),
         ],
       ),
     );
   }
 
-  Widget _buildGreenStoryWebMobile() {
-    return Padding(
-      padding:
-          const EdgeInsets.symmetric(horizontal: AppUtils.mobilePaddingHoriz),
-      child: Column(
-        children: [
-          const Text(
-              textAlign: TextAlign.center,
-              'Những câu chuyện xanh Web Mobile',
-              style: AppStyle.titleTextWebMobile),
-          const SizedBox(height: 10.0),
-          CustomAppGridView(
-            itemCount: datas.length,
-            maxCrossAxisExtent: double.infinity,
-            childAspectRatio: 0.58,
-            itemBuilder: (context, index) {
-              return Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                        color: AppColor.blackColor.withOpacity(0.2),
-                        offset: const Offset(0, 2),
-                        blurRadius: 2,
-                        spreadRadius: 1)
-                  ],
-                  color: AppColor.whiteColor,
-                ),
-                child: LayoutBuilder(
-                  builder: (context, constraints) {
-                    return Column(
-                      children: [
-                        Image.network(
-                          datas[index].imagePath,
-                          width: double.infinity,
-                          height: constraints.maxHeight * 0.45,
-                          fit: BoxFit.cover,
-                        ),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 10,
-                              vertical: 10.0,
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 3,
-                                  datas[index].title,
-                                  style: AppStyle.textContent
-                                      .copyWith(fontWeight: FontWeight.bold),
-                                ),
-                                const SizedBox(height: 10.0),
-                                Text(
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 3,
-                                  datas[index].subTitle,
-                                  style: AppStyle.textContent,
-                                ),
-                                const Spacer(),
-                                Center(
-                                  child: WebButton(
-                                    textButton: 'Xem Ngay',
-                                    onPressed: () {},
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        )
-                      ],
-                    );
-                  },
-                ),
-              );
-            },
-          ),
+  Widget _buildStoryGrid(List<StoryItemModel> storyDatas,
+      void Function(StoryItemModel) onPressed, bool isMobile) {
+    return CustomAppGridView(
+      itemCount: storyDatas.length,
+      maxCrossAxisExtent: isMobile ? double.infinity : 400.0,
+      childAspectRatio: isMobile ? 0.58 : 0.75,
+      itemBuilder: (context, index) {
+        return _buildStoryItem(storyDatas[index], onPressed, isMobile);
+      },
+    );
+  }
+
+  Widget _buildStoryItem(StoryItemModel data,
+      void Function(StoryItemModel) onPressed, bool isMobile) {
+    return Container(
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: AppColor.blackColor.withOpacity(0.2),
+            offset: const Offset(0, 2),
+            blurRadius: 2,
+            spreadRadius: 1,
+          )
         ],
+        color: AppColor.whiteColor,
+      ),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          return Column(
+            children: [
+              Image.network(
+                data.imagePath.first,
+                width: double.infinity,
+                height: constraints.maxHeight * 0.45,
+                fit: BoxFit.cover,
+              ),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: isMobile ? 10.0 : 20.0,
+                    vertical: 10.0,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        data.title,
+                        maxLines: isMobile ? 3 : 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: AppStyle.textContent.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const Spacer(),
+                      Center(
+                        child: WebButton(
+                          textButton: 'Xem Ngay',
+                          onPressed: () => onPressed(data),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          );
+        },
       ),
     );
   }

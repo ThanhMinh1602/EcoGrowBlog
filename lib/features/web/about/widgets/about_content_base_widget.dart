@@ -1,4 +1,3 @@
-import 'package:eco_grow/core/extensions/app_extension.dart';
 import 'package:eco_grow/core/utils/app_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:eco_grow/core/constants/app_style.dart';
@@ -20,7 +19,6 @@ class AboutContentBaseWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-        vertical: 16.0,
         horizontal:
             isMobile ? AppUtils.mobilePaddingHoriz : AppUtils.webPaddingHoriz,
       ),
@@ -48,33 +46,37 @@ class AboutContentBaseWidget extends StatelessWidget {
   }
 
   Widget _buildTextColumn() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          data.title,
-          style: isMobile ? AppStyle.titleTextWebMobile : AppStyle.titleText,
-          textAlign: TextAlign.center,
-        ),
-        const SizedBox(height: 8.0),
-        ...data.content.map(
-          (text) => Padding(
-            padding: const EdgeInsets.only(bottom: 7.0),
-            child: Text(
-              text,
-              style:
-                  isMobile ? AppStyle.textContentMobile : AppStyle.textContent,
-              textAlign: TextAlign.justify,
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            data.title,
+            style: isMobile ? AppStyle.titleTextWebMobile : AppStyle.titleText,
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 8.0),
+          ...data.content.map(
+            (text) => Padding(
+              padding: const EdgeInsets.only(bottom: 7.0),
+              child: Text(
+                text,
+                style: isMobile
+                    ? AppStyle.textContentMobile
+                    : AppStyle.textContent,
+                textAlign: TextAlign.justify,
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
   Widget _buildImage() {
     return Container(
-      width: isMobile ? double.infinity : 600,
+      width: double.infinity,
       height: isMobile ? 200 : 600,
       decoration: const BoxDecoration(
         image: DecorationImage(

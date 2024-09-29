@@ -19,7 +19,7 @@ extension AppExtension on BuildContext {
     Navigator.of(this).push(
       PageTransition(
         duration: const Duration(milliseconds: 100),
-        type: PageTransitionType.leftToRight,
+        type: PageTransitionType.fade,
         child: screen,
       ),
     );
