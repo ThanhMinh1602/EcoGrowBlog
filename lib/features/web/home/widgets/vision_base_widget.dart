@@ -1,4 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:eco_grow/core/components/text_animated_custom.dart';
 import 'package:eco_grow/core/components/web_button.dart';
 import 'package:eco_grow/core/constants/app_color.dart';
 import 'package:eco_grow/core/extensions/app_extension.dart';
@@ -23,18 +24,7 @@ class VisionBaseWidget extends StatelessWidget {
     final screenWidth = context.getWidth();
     return Column(
       children: [
-        AnimatedTextKit(
-          repeatForever: true,
-          animatedTexts: [
-            ColorizeAnimatedText(
-              textAlign: TextAlign.center,
-              'Tầm nhìn của ECOGROW',
-              textStyle: titleStyle,
-              colors: AppColor.homTitleTextColorize,
-              speed: const Duration(milliseconds: 100),
-            ),
-          ],
-        ),
+        TextAnimatedCustom('Tầm nhìn của ECOGROW', titleStyle: titleStyle),
         Divider(
           color: AppColor.accentColor,
           indent: screenWidth * 0.42,

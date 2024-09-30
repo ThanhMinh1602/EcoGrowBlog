@@ -37,6 +37,7 @@ dependencies:
   mailer: ^6.2.0
   mind_map: ^1.0.4
   page_transition: ^2.1.0
+  pagination_flutter: ^0.0.8
 
 dev_dependencies:
   build_runner: ^2.4.12

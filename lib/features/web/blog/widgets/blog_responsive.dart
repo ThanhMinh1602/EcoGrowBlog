@@ -41,7 +41,8 @@ class GreenStoryResponsive extends StatelessWidget {
               ColorizeAnimatedText(
                 textAlign: TextAlign.center,
                 'Câu chuyện cá nhân',
-                textStyle: AppStyle.titleText,
+                textStyle:
+                    isMobile ? AppStyle.titleTextWebMobile : AppStyle.titleText,
                 colors: AppColor.homTitleTextColorize,
                 speed: const Duration(milliseconds: 100),
               ),
@@ -61,7 +62,8 @@ class GreenStoryResponsive extends StatelessWidget {
               ColorizeAnimatedText(
                 textAlign: TextAlign.center,
                 'Câu chuyện cộng đồng',
-                textStyle: AppStyle.titleText,
+                textStyle:
+                    isMobile ? AppStyle.titleTextWebMobile : AppStyle.titleText,
                 colors: AppColor.homTitleTextColorize,
                 speed: const Duration(milliseconds: 100),
               ),
@@ -84,7 +86,7 @@ class GreenStoryResponsive extends StatelessWidget {
     return CustomAppGridView(
       itemCount: storyDatas.length,
       maxCrossAxisExtent: isMobile ? double.infinity : 400.0,
-      childAspectRatio: isMobile ? 0.58 : 0.75,
+      childAspectRatio: isMobile ? 1 : 0.8,
       itemBuilder: (context, index) {
         return _buildStoryItem(storyDatas[index], onPressed, isMobile);
       },
@@ -112,7 +114,9 @@ class GreenStoryResponsive extends StatelessWidget {
               Image.network(
                 data.imagePath.first,
                 width: double.infinity,
-                height: constraints.maxHeight * 0.45,
+                height: isMobile
+                    ? constraints.maxHeight * 0.6
+                    : constraints.maxHeight * 0.6,
                 fit: BoxFit.cover,
               ),
               Expanded(

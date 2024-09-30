@@ -21,6 +21,8 @@ class AppStyle {
   );
   static const TextStyle titleText = TextStyle(
       fontSize: 40, fontWeight: FontWeight.bold, color: AppColor.accentColor);
+  static const TextStyle headerTableText = TextStyle(
+      fontSize: 16.0, fontWeight: FontWeight.bold, color: AppColor.whiteColor);
 
   //web mobile
   static const TextStyle bannerTextWebMobile = TextStyle(
@@ -31,4 +33,6 @@ class AppStyle {
     fontSize: 15.0,
     fontWeight: FontWeight.normal,
   );
+  static const TextStyle headerTableTextWebMobile = TextStyle(
+      fontSize: 12.0, fontWeight: FontWeight.bold, color: AppColor.whiteColor);
 }

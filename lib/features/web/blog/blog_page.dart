@@ -15,7 +15,7 @@ class BlogPage extends StatelessWidget {
     const String bannerImageUrl =
         'https://cdn.pixabay.com/photo/2024/04/12/19/50/earthday-8692504_1280.png';
     const String bannerTitle =
-        'https://cdn.pixabay.com/photo/2024/04/12/19/50/earthday-8692504_1280.png';
+        'Hãy kể câu chuyện của bạn – Vì mỗi người đều có điều đáng để chia sẻ!';
     final datas = StoryItemModel.stories;
     return ListView(
       children: [

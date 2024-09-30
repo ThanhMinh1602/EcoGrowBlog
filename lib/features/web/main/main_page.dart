@@ -20,7 +20,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int indexStack = 2;
+  int indexStack = 3;
 
   final List<MainModel> mainModels = [
     MainModel(title: 'Home', page: const HomePage()),
