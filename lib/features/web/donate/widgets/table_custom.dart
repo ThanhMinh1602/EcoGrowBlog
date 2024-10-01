@@ -1,5 +1,6 @@
 import 'package:eco_grow/core/components/flexible_text_custom.dart';
 import 'package:eco_grow/core/components/text_animated_custom.dart';
+import 'package:eco_grow/core/components/title_text_widget.dart';
 import 'package:eco_grow/core/constants/app_color.dart';
 import 'package:eco_grow/core/constants/app_style.dart';
 import 'package:eco_grow/core/utils/app_utils.dart';
@@ -66,10 +67,7 @@ class _TableCustomResponsiveState extends State<TableCustomResponsive> {
       padding: const EdgeInsets.symmetric(horizontal: AppUtils.webPaddingHoriz),
       child: Column(
         children: [
-          TextAnimatedCustom(
-            _tableTitle,
-            style: AppStyle.titleText,
-          ),
+          TitleTextWidget(title: _tableTitle),
           const SizedBox(height: 20.0),
           _buildSearchBar(width: 400.0, height: 50.0),
           const SizedBox(height: 20.0),
@@ -188,10 +186,7 @@ class _TableCustomResponsiveState extends State<TableCustomResponsive> {
           const EdgeInsets.symmetric(horizontal: AppUtils.mobilePaddingHoriz),
       child: Column(
         children: [
-          TextAnimatedCustom(
-            _tableTitle,
-            style: AppStyle.titleTextWebMobile,
-          ),
+          TitleTextWidget(title: _tableTitle),
           const SizedBox(height: 20.0),
           _buildSearchBar(width: double.infinity, height: 50.0),
           const SizedBox(height: 20.0),

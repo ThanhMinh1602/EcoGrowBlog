@@ -1,5 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:eco_grow/core/components/custom_grid_view.dart';
+import 'package:eco_grow/core/components/title_text_widget.dart';
+import 'package:eco_grow/core/components/text_animated_custom.dart';
 import 'package:eco_grow/core/components/web_button.dart';
 import 'package:eco_grow/core/constants/app_color.dart';
 import 'package:eco_grow/core/constants/app_style.dart';
@@ -35,46 +37,10 @@ class GreenStoryResponsive extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(height: 30.0),
-          AnimatedTextKit(
-            repeatForever: true,
-            animatedTexts: [
-              ColorizeAnimatedText(
-                textAlign: TextAlign.center,
-                'Câu chuyện cá nhân',
-                textStyle:
-                    isMobile ? AppStyle.titleTextWebMobile : AppStyle.titleText,
-                colors: AppColor.homTitleTextColorize,
-                speed: const Duration(milliseconds: 100),
-              ),
-            ],
-          ),
-          Divider(
-            color: AppColor.accentColor,
-            indent: context.getWidth() * 0.42,
-            endIndent: context.getWidth() * 0.42,
-            thickness: 3,
-          ),
+          const TitleTextWidget(title: 'Câu chuyện cá nhân'),
           _buildStoryGrid(personalDatas, onPressedDetail, isMobile),
           const SizedBox(height: 30.0),
-          AnimatedTextKit(
-            repeatForever: true,
-            animatedTexts: [
-              ColorizeAnimatedText(
-                textAlign: TextAlign.center,
-                'Câu chuyện cộng đồng',
-                textStyle:
-                    isMobile ? AppStyle.titleTextWebMobile : AppStyle.titleText,
-                colors: AppColor.homTitleTextColorize,
-                speed: const Duration(milliseconds: 100),
-              ),
-            ],
-          ),
-          Divider(
-            color: AppColor.accentColor,
-            indent: context.getWidth() * 0.42,
-            endIndent: context.getWidth() * 0.42,
-            thickness: 3,
-          ),
+          const TitleTextWidget(title: 'Câu chuyện cộng đồng'),
           _buildStoryGrid(communityDatas, onPressedDetail, isMobile),
         ],
       ),

@@ -1,4 +1,5 @@
 import 'package:eco_grow/core/components/custom_grid_view.dart';
+import 'package:eco_grow/core/components/title_text_widget.dart';
 import 'package:eco_grow/core/components/responsive/banner_responsive.dart';
 import 'package:eco_grow/core/components/responsive/footer_responsive.dart';
 import 'package:eco_grow/core/components/text_animated_custom.dart';
@@ -6,8 +7,6 @@ import 'package:eco_grow/core/constants/app_color.dart';
 import 'package:eco_grow/core/constants/app_style.dart';
 import 'package:eco_grow/core/extensions/app_extension.dart';
 import 'package:eco_grow/core/utils/app_utils.dart';
-import 'package:eco_grow/features/web/home/widgets/live_green_responsive.dart';
-import 'package:eco_grow/model/about_model.dart';
 import 'package:eco_grow/model/core_value_model.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +16,6 @@ class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool isMobile = context.getWidth() < AppUtils.defineScreenMobile;
-    final aboutModels = AboutModel.aboutModels;
     final coreValues = CoreValueModel.coreValue;
     const backgroundImage =
         'https://cdn.pixabay.com/photo/2022/10/23/13/43/canoe-7541311_1280.jpg';
@@ -31,10 +29,7 @@ class AboutPage extends StatelessWidget {
                 bannerImageUrl: backgroundImage,
                 bannerTitle: title),
             const SizedBox(height: 30.0),
-            TextAnimatedCustom('Giá trị cốt lõi của EcoGrow',
-                style: isMobile
-                    ? AppStyle.titleTextWebMobile
-                    : AppStyle.titleText),
+            const TitleTextWidget(title: 'Giá trị cốt lõi của EcoGrow'),
             Padding(
               padding: EdgeInsets.symmetric(
                   horizontal: isMobile

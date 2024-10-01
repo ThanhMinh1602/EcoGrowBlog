@@ -1,4 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:eco_grow/core/components/title_text_widget.dart';
 import 'package:eco_grow/core/components/text_animated_custom.dart';
 import 'package:eco_grow/core/components/web_button.dart';
 import 'package:eco_grow/core/constants/app_color.dart';
@@ -21,16 +22,9 @@ class VisionBaseWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = context.getWidth();
     return Column(
       children: [
-        TextAnimatedCustom('Tổng quan về EcoGrow', style: titleStyle),
-        Divider(
-          color: AppColor.accentColor,
-          indent: screenWidth * 0.42,
-          endIndent: screenWidth * 0.42,
-          thickness: 3,
-        ),
+        const TitleTextWidget(title: 'Tổng quan về EcoGrow'),
         const SizedBox(height: 20.0),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: paddingHoriz),
