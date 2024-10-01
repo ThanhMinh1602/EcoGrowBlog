@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "1081207055018",
+    "project_id": "datnminh-787e2",
+    "storage_bucket": "datnminh-787e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1081207055018:android:254014094e8930a094a6d3",
+        "android_client_info": {
+          "package_name": "com.example.eco_grow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1081207055018-etm5dpujuvdi125pf721pvvj8f18ipfu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGZVNYi7sqmRQTESzxwma3OJx2GMWeoRM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1081207055018-etm5dpujuvdi125pf721pvvj8f18ipfu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1081207055018-blnis0epbovvqhbrhtecp4l3lrcg7b26.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.travelApp.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1081207055018:android:959a90fad0c46a9594a6d3",
+        "android_client_info": {
+          "package_name": "com.example.travel_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1081207055018-etm5dpujuvdi125pf721pvvj8f18ipfu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGZVNYi7sqmRQTESzxwma3OJx2GMWeoRM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1081207055018-etm5dpujuvdi125pf721pvvj8f18ipfu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1081207055018-blnis0epbovvqhbrhtecp4l3lrcg7b26.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.travelApp.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
