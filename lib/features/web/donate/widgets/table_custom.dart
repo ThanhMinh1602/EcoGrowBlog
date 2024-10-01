@@ -68,7 +68,7 @@ class _TableCustomResponsiveState extends State<TableCustomResponsive> {
         children: [
           TextAnimatedCustom(
             _tableTitle,
-            titleStyle: AppStyle.titleText,
+            style: AppStyle.titleText,
           ),
           const SizedBox(height: 20.0),
           _buildSearchBar(width: 400.0, height: 50.0),
@@ -190,7 +190,7 @@ class _TableCustomResponsiveState extends State<TableCustomResponsive> {
         children: [
           TextAnimatedCustom(
             _tableTitle,
-            titleStyle: AppStyle.titleTextWebMobile,
+            style: AppStyle.titleTextWebMobile,
           ),
           const SizedBox(height: 20.0),
           _buildSearchBar(width: double.infinity, height: 50.0),

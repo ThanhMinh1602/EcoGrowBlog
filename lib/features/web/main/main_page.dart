@@ -20,7 +20,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int indexStack = 3;
+  int indexStack = 0;
 
   final List<MainModel> mainModels = [
     MainModel(title: 'Home', page: const HomePage()),
@@ -57,7 +57,8 @@ class _MainPageState extends State<MainPage> {
   Drawer _buildAppDrawer() {
     return Drawer(
       child: ListView(
-        padding: EdgeInsets.zero,
+        padding: const EdgeInsets.symmetric(
+            horizontal: AppUtils.mobilePaddingHoriz, vertical: 30.0),
         children: _buildNavButtons(),
       ),
     );
@@ -87,7 +88,12 @@ class _MainPageState extends State<MainPage> {
       style: TextButton.styleFrom(
         backgroundColor: isActive ? AppColor.accentColor : Colors.transparent,
       ),
-      onPressed: () => _onNavButtonPressed(index),
+      onPressed: () {
+        _onNavButtonPressed(index);
+        if (isMobile) {
+          Navigator.pop(context);
+        }
+      },
       child: Text(
         label,
         style: isActive ? AppStyle.webHeaderItemActive : AppStyle.webHeaderItem,

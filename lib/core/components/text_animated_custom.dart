@@ -4,13 +4,12 @@ import 'package:flutter/material.dart';
 
 class TextAnimatedCustom extends StatelessWidget {
   final String text;
+  final TextStyle style;
   const TextAnimatedCustom(
     this.text, {
     super.key,
-    required this.titleStyle,
+    required this.style,
   });
-
-  final TextStyle titleStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +19,7 @@ class TextAnimatedCustom extends StatelessWidget {
         ColorizeAnimatedText(
           textAlign: TextAlign.center,
           text,
-          textStyle: titleStyle,
+          textStyle: style,
           colors: AppColor.homTitleTextColorize,
           speed: const Duration(milliseconds: 100),
         ),

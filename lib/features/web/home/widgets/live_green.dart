@@ -1,14 +1,15 @@
+import 'package:eco_grow/core/components/text_animated_custom.dart';
 import 'package:eco_grow/core/utils/app_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:eco_grow/core/constants/app_style.dart';
 import 'package:eco_grow/model/about_model.dart';
 
-class AboutContentBaseWidget extends StatelessWidget {
+class LiveGreenWidget extends StatelessWidget {
   final AboutModel data;
   final bool isMobile;
   final bool isOdd;
 
-  const AboutContentBaseWidget({
+  const LiveGreenWidget({
     super.key,
     required this.data,
     this.isMobile = false,
@@ -31,16 +32,20 @@ class AboutContentBaseWidget extends StatelessWidget {
                 _buildTextColumn(),
               ],
             )
-          : Row(
-              children: isOdd
-                  ? [
-                      Flexible(child: _buildTextColumn()),
-                      Flexible(child: _buildImage()),
-                    ]
-                  : [
-                      Flexible(child: _buildImage()),
-                      Flexible(child: _buildTextColumn()),
-                    ],
+          : Column(
+              children: [
+                Row(
+                  children: isOdd
+                      ? [
+                          Flexible(child: _buildTextColumn()),
+                          Flexible(child: _buildImage()),
+                        ]
+                      : [
+                          Flexible(child: _buildImage()),
+                          Flexible(child: _buildTextColumn()),
+                        ],
+                ),
+              ],
             ),
     );
   }
@@ -51,10 +56,9 @@ class AboutContentBaseWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          TextAnimatedCustom(
             data.title,
             style: isMobile ? AppStyle.titleTextWebMobile : AppStyle.titleText,
-            textAlign: TextAlign.center,
           ),
           const SizedBox(height: 8.0),
           ...data.content.map(
@@ -77,11 +81,11 @@ class AboutContentBaseWidget extends StatelessWidget {
   Widget _buildImage() {
     return Container(
       width: double.infinity,
-      height: isMobile ? 200 : 600,
-      decoration: const BoxDecoration(
+      height: isMobile ? 200 : 400,
+      decoration: BoxDecoration(
+        shape: isMobile ? BoxShape.rectangle : BoxShape.circle,
         image: DecorationImage(
-          image: NetworkImage(
-              'https://cdn.pixabay.com/photo/2024/01/08/17/59/dandelion-8496044_1280.jpg'),
+          image: NetworkImage(data.image.toString()),
           fit: BoxFit.cover,
         ),
       ),

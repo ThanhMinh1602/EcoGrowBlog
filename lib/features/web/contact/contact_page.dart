@@ -60,34 +60,37 @@ class ContactPage extends StatelessWidget {
             isMobileWeb: isMobile,
             bannerImageUrl: bannerImageUrl,
             bannerTitle: bannerTitle),
-        CustomAppGridView(
-          itemCount: 3,
-          maxCrossAxisExtent: 400,
-          childAspectRatio: 1.7,
-          itemBuilder: (context, index) {
-            final datas = ContactModel.contactModels;
-            return Container(
-              padding: EdgeInsets.all(context.getWidth() * 0.02),
-              decoration: BoxDecoration(
-                  border: Border.all(
-                color: AppColor.accentColor,
-                width: 3.0,
-              )),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(datas[index].icon,
-                      size: 30.0, color: AppColor.accentColor),
-                  Text(
-                    textAlign: TextAlign.center,
-                    datas[index].title,
-                    style: AppStyle.webHeaderItemActive
-                        .copyWith(color: AppColor.accentColor),
-                  ),
-                ],
-              ),
-            );
-          },
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 300),
+          child: CustomAppGridView(
+            itemCount: 3,
+            maxCrossAxisExtent: 400,
+            childAspectRatio: 1.7,
+            itemBuilder: (context, index) {
+              final datas = ContactModel.contactModels;
+              return Container(
+                padding: EdgeInsets.all(context.getWidth() * 0.02),
+                decoration: BoxDecoration(
+                    border: Border.all(
+                  color: AppColor.accentColor,
+                  width: 3.0,
+                )),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(datas[index].icon,
+                        size: 30.0, color: AppColor.accentColor),
+                    Text(
+                      textAlign: TextAlign.center,
+                      datas[index].title,
+                      style: AppStyle.webHeaderItemActive
+                          .copyWith(color: AppColor.accentColor),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
         ),
         const SizedBox(height: 50.0),
         Center(

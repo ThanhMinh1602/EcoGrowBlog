@@ -97,14 +97,7 @@ class GreenStoryResponsive extends StatelessWidget {
       void Function(StoryItemModel) onPressed, bool isMobile) {
     return Container(
       decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: AppColor.blackColor.withOpacity(0.2),
-            offset: const Offset(0, 2),
-            blurRadius: 2,
-            spreadRadius: 1,
-          )
-        ],
+        boxShadow: AppColor.appBoxShaDowns,
         color: AppColor.whiteColor,
       ),
       child: LayoutBuilder(

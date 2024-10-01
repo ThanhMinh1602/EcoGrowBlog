@@ -15,17 +15,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Blog App',
-      debugShowCheckedModeBanner: false,
-      theme: _buildAppTheme(),
-      home: _buildHomePage(),
-      builder: (context, widget) {
-        if (kIsWeb) return widget!;
-        return ScreenUtilInit(
-          designSize: const Size(430, 932),
-          minTextAdapt: true,
-          builder: (context, child) => widget!,
+    return ScreenUtilInit(
+      designSize: const Size(430, 932),
+      minTextAdapt: true,
+      builder: (context, child) {
+        return MaterialApp(
+          title: 'Blog App',
+          debugShowCheckedModeBanner: false,
+          theme: _buildAppTheme(),
+          home: _buildHomePage(),
         );
       },
     );

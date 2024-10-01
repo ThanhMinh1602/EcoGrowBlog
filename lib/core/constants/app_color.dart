@@ -12,4 +12,12 @@ class AppColor {
     Color(0xff4CAF50),
     Color.fromARGB(255, 225, 255, 0),
   ];
+  static List<BoxShadow> appBoxShaDowns = [
+    BoxShadow(
+      color: AppColor.blackColor.withOpacity(0.2),
+      offset: const Offset(0, 2),
+      blurRadius: 2,
+      spreadRadius: 1,
+    )
+  ];
 }

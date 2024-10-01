@@ -24,7 +24,7 @@ class VisionBaseWidget extends StatelessWidget {
     final screenWidth = context.getWidth();
     return Column(
       children: [
-        TextAnimatedCustom('Tầm nhìn của ECOGROW', titleStyle: titleStyle),
+        TextAnimatedCustom('Tổng quan về EcoGrow', style: titleStyle),
         Divider(
           color: AppColor.accentColor,
           indent: screenWidth * 0.42,
@@ -49,10 +49,6 @@ class VisionBaseWidget extends StatelessWidget {
             width: double.infinity,
             fit: BoxFit.cover,
           ),
-        ),
-        const SizedBox(height: 50.0),
-        const WebButton(
-          textButton: "Quyên góp ngay",
         ),
         const SizedBox(height: 50.0),
       ],
