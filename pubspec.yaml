@@ -28,7 +28,10 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   animated_text_kit: ^4.2.2
+  cloud_firestore: ^5.4.4
   cupertino_icons: ^1.0.8
+  firebase_auth: ^5.3.1
+  firebase_core: ^3.6.0
   flutter:
     sdk: flutter
   flutter_screenutil: ^5.9.3
@@ -38,6 +41,7 @@ dependencies:
   mind_map: ^1.0.4
   page_transition: ^2.1.0
   pagination_flutter: ^0.0.8
+  shared_preferences: ^2.3.2
 
 dev_dependencies:
   build_runner: ^2.4.12

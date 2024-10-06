@@ -1,7 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:eco_grow/core/components/title_text_widget.dart';
 import 'package:eco_grow/core/components/text_animated_custom.dart';
-import 'package:eco_grow/core/components/web_button.dart';
+import 'package:eco_grow/core/components/app_button.dart';
 import 'package:eco_grow/core/constants/app_color.dart';
 import 'package:eco_grow/core/extensions/app_extension.dart';
 import 'package:flutter/material.dart';

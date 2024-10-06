@@ -24,4 +24,14 @@ extension AppExtension on BuildContext {
       ),
     );
   }
+
+  void pushRtl({required Widget screen}) {
+    Navigator.of(this).push(
+      PageTransition(
+        duration: const Duration(milliseconds: 400),
+        type: PageTransitionType.rightToLeft,
+        child: screen,
+      ),
+    );
+  }
 }
