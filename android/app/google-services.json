@@ -1,13 +1,23 @@
 {
   "project_info": {
+<<<<<<< HEAD
     "project_number": "454938237717",
     "project_id": "eco-14d93",
     "storage_bucket": "eco-14d93.appspot.com"
+=======
+    "project_number": "37583787547",
+    "project_id": "code-thue-do-an",
+    "storage_bucket": "code-thue-do-an.appspot.com"
+>>>>>>> 836d894cde200acadd153c573edf80fdb55a0632
   },
   "client": [
     {
       "client_info": {
+<<<<<<< HEAD
         "mobilesdk_app_id": "1:454938237717:android:5fc88d4c2de2997004671c",
+=======
+        "mobilesdk_app_id": "1:37583787547:android:0180b698f894ac844e4abe",
+>>>>>>> 836d894cde200acadd153c573edf80fdb55a0632
         "android_client_info": {
           "package_name": "com.example.eco_grow"
         }
@@ -15,7 +25,11 @@
       "oauth_client": [],
       "api_key": [
         {
+<<<<<<< HEAD
           "current_key": "AIzaSyAT9yyBBDgYz-gnJ5YxbIjifgPjQMPKiRI"
+=======
+          "current_key": "AIzaSyCQ5KjkPHKxIFxrbC68F2laCN8_FDIyZVo"
+>>>>>>> 836d894cde200acadd153c573edf80fdb55a0632
         }
       ],
       "services": {

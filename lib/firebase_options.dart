@@ -47,6 +47,7 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
+<<<<<<< HEAD
     apiKey: 'AIzaSyDkH4UQ_Cjudq99BNcyb5HKhtlgORFgTSg',
     appId: '1:454938237717:web:fc7dd5d11af190c204671c',
     messagingSenderId: '454938237717',
@@ -70,6 +71,31 @@ class DefaultFirebaseOptions {
     messagingSenderId: '454938237717',
     projectId: 'eco-14d93',
     storageBucket: 'eco-14d93.appspot.com',
+=======
+    apiKey: 'AIzaSyDi8Nb5rBPwRCZRiq7hO0cVr7I9jJDS28U',
+    appId: '1:37583787547:web:cfcd786533676afa4e4abe',
+    messagingSenderId: '37583787547',
+    projectId: 'code-thue-do-an',
+    authDomain: 'code-thue-do-an.firebaseapp.com',
+    storageBucket: 'code-thue-do-an.appspot.com',
+    measurementId: 'G-4G43889VVN',
+  );
+
+  static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'AIzaSyCQ5KjkPHKxIFxrbC68F2laCN8_FDIyZVo',
+    appId: '1:37583787547:android:0180b698f894ac844e4abe',
+    messagingSenderId: '37583787547',
+    projectId: 'code-thue-do-an',
+    storageBucket: 'code-thue-do-an.appspot.com',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyBVIsUPDmN1uDcJi_2CtqY2UKugCXJBmqo',
+    appId: '1:37583787547:ios:eab341d89497666b4e4abe',
+    messagingSenderId: '37583787547',
+    projectId: 'code-thue-do-an',
+    storageBucket: 'code-thue-do-an.appspot.com',
+>>>>>>> 836d894cde200acadd153c573edf80fdb55a0632
     iosBundleId: 'com.example.ecoGrow',
   );
 }

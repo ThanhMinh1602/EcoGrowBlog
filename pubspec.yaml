@@ -30,7 +30,10 @@ dependencies:
   animated_text_kit: ^4.2.2
   cloud_firestore: ^5.4.4
   cupertino_icons: ^1.0.8
+<<<<<<< HEAD
   firebase_auth: ^5.3.1
+=======
+>>>>>>> 836d894cde200acadd153c573edf80fdb55a0632
   firebase_core: ^3.6.0
   flutter:
     sdk: flutter

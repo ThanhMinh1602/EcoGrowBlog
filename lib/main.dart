@@ -7,9 +7,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
+<<<<<<< HEAD
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+=======
+void main() async {
+>>>>>>> 836d894cde200acadd153c573edf80fdb55a0632
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
